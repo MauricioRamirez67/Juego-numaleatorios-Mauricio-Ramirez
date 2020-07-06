@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<style typ="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Acme', sans-serif;
+}
+
+body {
+	background-color: #0a3d62;
+}
+
+.container {
+	width: 70%;
+	margin: auto;
+	text-align: center;
+}
+
+.dado {
+	text-align: center; 
+	display: inline-block;
+}
+
+h1 {
+	margin: 30px;
+	text-shadow: 5px 5px white;
+	font-size: 6rem;
+	color: #f6b93b;
+}
+
+p {
+	font-size: 2rem;
+	color: #00b894;
+	text-shadow: 1px 1px white;
+}
+
+button {
+	padding: 10px;
+	background-color: #00b894;
+	color: white;
+	border: none; 
+}
+
+img {
+	width: 60%;
+	display: inline-block;
+}
+</style>
+	<title></title>
+	<link href="https://fonts.googlepis.com/css?family=Acme" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<h1>DADOS</h1>
+
+	<div class="dado">
+		<p>Jugador 1</p>
+		<img src="dado1.jpg" id="check1">
+	</div>
+	<div class="dado">
+		<p>Jugador 2</p>
+		<img src="dado2.jpg" id="check2">
+	</div>
+	<div>
+		<button onclick="tirardados()">Tócame</button>
+	</div>
+</div>
+
+<script>
+tirardados = () => {
+	const play1 = Math.floor(Math.random() *6) +1;
+	const play1dado = `dado${play1}.jpg`;
+	document.getElementById('check1').setAttribute('src', play1dado);
+
+	const play2 = Math.floor(Math.random() *6) +1;
+	const play2dado = `dado${play2}.jpg`;
+	document.getElementById('check2').setAttribute('src', play2dado);
+
+	if(play1 > play2) 
+		{ document.querySelector('h1').innerHTML="Jugador 1 Ganaste :)";
+	} else if(play1 < play2) {
+		 document.querySelector('h1').innerHTML="Jugador 2 Ganaste :)";
+	} else{ document.querySelector('h1').innerHTML="Empate :|";}
+}
+</script>
+</body>
+</html>
